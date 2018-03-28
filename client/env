@@ -1,0 +1,5 @@
+export DDNS_ROUTE53_TTL=30
+export DDNS_ROUTE53_COMMENT="test"
+export DDNS_ROUTE53_DOMAIN="ghostbaby.io"
+export DDNS_ROUTE53_HOST="ddnstest"
+export DDNS_ROUTE53_IP="192.168.105.200"

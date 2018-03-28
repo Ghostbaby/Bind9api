@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: bind9api
+  namespace: default
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: bind9api
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: bind9api
+        image: 192.168.105.152:32278/bind9api
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        command:
+            - sh
+            - -c
+            - "python /src/bind-api.py"
+        volumeMounts:
+            - name: bind9api-env
+              mountPath: "/src/config.ini"
+              subPath: config.ini
+      volumes:
+        - name: bind9api-env
+          configMap:
+            name: bind9api-env

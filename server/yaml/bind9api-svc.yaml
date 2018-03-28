@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bind9api-svc
+  namespace: default
+  labels:
+    app: bind9api
+spec:
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
+    nodePort: 32290
+  type: NodePort
+  selector:
+    app: bind9api

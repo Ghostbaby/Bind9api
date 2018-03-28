@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bind9api-env
+  labels:
+    app: bind9api
+data:
+  config.ini: |
+    [nameserver]
+    server = 192.168.105.200
+    
+    [auth]
+    username = TRANSFER
+    password = tyotbkpho0eKSROYLMLFOQ==
+    
+    [zones]
+    valid = ghostbaby.io
